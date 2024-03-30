@@ -26,6 +26,7 @@ def main():
             print("Cost Grid:")
             for row in cost_grid:
                 print(row)
+                print("Hello")
 
     except FileNotFoundError:
         print("Error: The file doesn't exist. Please check the file and try again")
