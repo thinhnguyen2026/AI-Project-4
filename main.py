@@ -32,7 +32,7 @@ def calculate_cost(route, cost_matrix):
     total_cost += cost_matrix[route[-1]][route[0]]
     return total_cost
 
-def tournament_selection(population, cost_matrix, tournament_size =3):
+def tournament_selection(population, cost_matrix, tournament_size =5):
     tournament_size = min(tournament_size, len(population))
     tournament = random.sample(population, tournament_size)
     return min(tournament, key=lambda individual: calculate_cost(individual, cost_matrix))
@@ -52,7 +52,7 @@ def mutate(route, mutation_rate=0.01):
             route[i], route[swap_with] = route[swap_with], route[i]
     return route
 
-def genetic_algorithm(filename, population_size=100, generations=50):
+def genetic_algorithm(filename, population_size=100, generations=500):
     cities, cost_matrix = read_tsp_file(filename)
     population = initial_population(population_size, len(cities))
     
